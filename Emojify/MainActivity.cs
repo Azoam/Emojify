@@ -67,6 +67,7 @@ namespace Emojify
         private void TakeAPicture(object sender, EventArgs eventArgs)
         {
             Intent intent = new Intent(MediaStore.ActionImageCapture);
+            App._file = new System.Drawing.Bitmap(String.Format("myPhoto_{0}.jpg", Guid.NewGuid()),10,30);
             App._file = new File(App._dir, String.Format("myPhoto_{0}.jpg", Guid.NewGuid()));
             intent.PutExtra(MediaStore.ExtraOutput, Android.Net.Uri.FromFile(App._file));
             StartActivityForResult(intent, 0);
